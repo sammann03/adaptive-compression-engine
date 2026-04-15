@@ -10,7 +10,7 @@ private:
     map<char, string> codes;
 
 public:
-    string compress(const string& input);
+    string compress(const string& s);
     const map<char, string>& getCodes();
 };
 

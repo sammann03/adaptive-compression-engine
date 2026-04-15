@@ -11,7 +11,7 @@ struct HuffmanNode {
     HuffmanNode* left;
     HuffmanNode* right;
 
-    HuffmanNode(char c, int f) {
+    HuffmanNode(const char c, const int f) {
         this->c = c;
         freq = f;
         left = nullptr;
@@ -49,7 +49,7 @@ void buildRecursive(HuffmanNode* node, const string& prefix, map<char, string>& 
     buildRecursive(node->right, prefix + "1", codes);
 }
 
-void deleteTree(HuffmanNode* node) {
+void deleteTree(const HuffmanNode* node) {
     if (node == nullptr) return;
     deleteTree(node->left);
     deleteTree(node->right);
@@ -83,8 +83,8 @@ string Huffman::compress(const string& s) {
 
     string encoded;
     encoded.reserve(s.size());
-    for (int i = 0; i < s.size(); i++) {
-        encoded += codes[s[i]];
+    for (char i : s) {
+        encoded += codes[i];
     }
 
     deleteTree(root);
