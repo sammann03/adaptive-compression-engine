@@ -1,8 +1,16 @@
-//
-// Created by samman on 4/15/26.
-//
+#ifndef LZ77_H
+#define LZ77_H
 
-#ifndef ADAPTIVE_COMPRESSION_ENGINE_LZ77_H
-#define ADAPTIVE_COMPRESSION_ENGINE_LZ77_H
+#include <string>
+using namespace std;
 
-#endif //ADAPTIVE_COMPRESSION_ENGINE_LZ77_H
+class LZ77 {
+private:
+    int windowSize;
+
+public:
+    string compress(const string& s);
+    explicit LZ77(int windowSize = 20);
+};
+
+#endif
