@@ -1,8 +1,9 @@
-//
-// Created by samman on 4/16/26.
-//
+#ifndef GREEDY_H
+#define GREEDY_H
 
-#ifndef ADAPTIVE_COMPRESSION_ENGINE_GREEDY_H
-#define ADAPTIVE_COMPRESSION_ENGINE_GREEDY_H
+#include <string>
+using namespace std;
 
-#endif //ADAPTIVE_COMPRESSION_ENGINE_GREEDY_H
+string greedySelect(double entropy, double repetitionRatio);
+
+#endif
