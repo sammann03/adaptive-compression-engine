@@ -1,8 +1,28 @@
-//
-// Created by samman on 4/16/26.
-//
+#ifndef DP_COMPRESSION_H
+#define DP_COMPRESSION_H
 
-#ifndef ADAPTIVE_COMPRESSION_ENGINE_DP_COMPRESSION_H
-#define ADAPTIVE_COMPRESSION_ENGINE_DP_COMPRESSION_H
+#include <string>
+#include <vector>
+using namespace std;
 
-#endif //ADAPTIVE_COMPRESSION_ENGINE_DP_COMPRESSION_H
+struct SegmentCompressionResult {
+    int startIndex;
+    int endIndex;
+    string algorithmUsed;
+    string originalSegment;
+    string compressedSegment;
+    int originalSize;
+    int compressedSize;
+};
+
+struct CompressionPlan {
+    vector<SegmentCompressionResult> segments;
+    int totalOriginalSize;
+    int totalCompressedSize;
+};
+
+CompressionPlan compressWithDP(const string& text, int minSegmentLength = 6, int maxSegmentLength = 30);
+
+
+
+#endif 

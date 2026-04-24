@@ -28,7 +28,7 @@ struct HuffmanNode {
 
 struct Compare {
     bool operator()(const HuffmanNode* a, const HuffmanNode* b) const {
-        return a->freq < b->freq;
+        return a->freq > b->freq;
     }
 };
 

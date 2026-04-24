@@ -4,10 +4,11 @@
 using namespace std;
 
 vector<int> buildLPS(const string& pattern) {
-    vector<int> lps(pattern.size(), 0);
+    int m = static_cast<int>(pattern.size());
+    vector<int> lps(m, 0);
     int length = 0;
 
-    for (int i = 0; i < pattern.size(); ) {
+    for (int i = 1; i < m; ) {
         if (pattern[i] == pattern[length]) {
             length++;
             lps[i] = length;
@@ -24,7 +25,10 @@ vector<int> buildLPS(const string& pattern) {
 }
 
 int kmpCount(const string &s, const string &pattern) {
-    if (s.empty() || pattern.empty() || pattern.size() > s.size()) {
+    int n = static_cast<int>(s.size());
+    int m = static_cast<int>(pattern.size());
+
+    if (n == 0 || m == 0 || m > n) {
         return 0;
     }
 
@@ -33,11 +37,11 @@ int kmpCount(const string &s, const string &pattern) {
     int j = 0;
     int count = 0;
 
-    while (i < s.size()) {
+    while (i < n) {
         if (s[i] == pattern[j]) {
             i++;
             j++;
-            if (j == pattern.size()) {
+            if (j == m) {
                 count++;
                 j = lps[j - 1];
             }

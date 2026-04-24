@@ -25,13 +25,14 @@ double calculateEntropy(const string &s) {
 
 double calculateRepetition(const string &s) {
     if (s.size() < 2) return 0.0;
+    int n = static_cast<int>(s.size());
     int repeated = 0;
 
-    for (int i = 0; i < s.size(); i++) {
+    for (int i = 1; i < n; i++) {
         if (s[i] == s[i - 1]) {
             repeated++;
         }
     }
 
-    return static_cast<double>(repeated) / static_cast<double>(s.size() - 1);
+    return static_cast<double>(repeated) / static_cast<double>(n - 1);
 }
